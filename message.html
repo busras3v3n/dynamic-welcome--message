@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let getBody = document.body;
+
+    let newElement = document.createElement("h1");
+
+    let date = new Date();
+    let currentHour = date.getHours();
+    console.log(currentHour);
+
+    let createTxtMsg;
+
+    if(currentHour >= 4 && currentHour < 11) {
+        createTxtMsg = "Good Morning!";
+    } else if (currentHour >= 11 && currentHour < 12) {
+        createTxtMsg = "Good Day!";
+    } else if (currentHour >= 12 && currentHour < 17){
+        createTxtMsg = "Good Afternoon!";
+    } else if (currentHour >= 17 && currentHour < 22) {
+        createTxtMsg = "Good Evening!";
+    } else if ((currentHour >= 22 && currentHour <= 12) || (currentHour => 1 && currentHour > 4)) {
+        createTxtMsg = "Good Night";
+    } else {
+        createTxtMsg = "Are you from a different planet? :O";
+    }
+
+    let textMessage = document.createTextNode(createTxtMsg);
+    newElement.appendChild(textMessage);
+
+    getBody.appendChild(newElement);
+
+    newElement.setAttribute("class", "welcome");
+</script>
+</html>
